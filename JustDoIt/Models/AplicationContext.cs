@@ -15,26 +15,12 @@ namespace JustDoIt.Models
         public DbSet<Notes> Notes { get; set; }
 
         private const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=NotesDB;Trusted_Connection=True;MultipleActiveResultSets=true";
-        //public AplicationContext(DbContextOptions<AplicationContext> options)
-        //    : base(options)
-        //{
-           
-
-        //}
-        protected readonly IConfiguration Configuration;
-
-        public AplicationContext(IConfiguration configuration)
+        public AplicationContext(DbContextOptions<AplicationContext> options)
+            : base(options)
         {
-            Configuration = configuration;
+
+
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            // connect to sql server database
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-        }
-
-
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
