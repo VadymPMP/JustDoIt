@@ -32,7 +32,7 @@ namespace JustDoIt.Models
                 FirstName = "Mykhailo",
                 SecondName = "Shastun",
                 Age = 18,
-                PasswordHash = new byte[] {1,2, 3, 4, 5, 6 },
+                Password = "123456",
                 Email = "qwert@gmail.com"
             },
             new Users
@@ -41,7 +41,7 @@ namespace JustDoIt.Models
                 FirstName = "Volodymyr",
                 SecondName = "Sydorko",
                 Age = 18,
-                PasswordHash = new byte[] { 1, 2, 3, 4, 5, 6 },
+                Password = "123456",
                 Email = "qwer@gmail.com"
 
             },
@@ -51,7 +51,7 @@ namespace JustDoIt.Models
                     FirstName = "Vadym",
                     SecondName = "Pyshniak",
                     Age = 18,
-                    PasswordHash = new byte[] { 1, 2, 3, 4, 5, 6 },
+                    Password = "123456",
                     Email = "qwerty@gmail.com"
 
                 }
