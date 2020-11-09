@@ -13,8 +13,7 @@ namespace JustDoIt.Models
         public DbSet<Users> Users { get; set; }
 
         public DbSet<Notes> Notes { get; set; }
-        //something
-
+        
         private const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=NotesDB;Trusted_Connection=True;MultipleActiveResultSets=true";
         public AplicationContext(DbContextOptions<AplicationContext> options)
             : base(options)
