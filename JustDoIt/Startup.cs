@@ -16,6 +16,7 @@ using AutoMapper;
 using System.Threading.Tasks;
 
 using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 namespace JustDoIt
 {
@@ -42,10 +43,14 @@ namespace JustDoIt
             services.AddReact();
             
             services.AddJsEngineSwitcher(options => options.DefaultEngineName = ChakraCoreJsEngine.EngineName).AddChakraCore();
+            services.AddDbContext<AplicationContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            string con = "Server=(localdb)\\mssqllocaldb;Database=AutoDB;Trusted_Connection=True;MultipleActiveResultSets=true";
+            services.AddIdentity<Users, IdentityRole>()
+                        .AddEntityFrameworkStores<AplicationContext>();
+            //string con = "Server=(localdb)\\mssqllocaldb;Database=AutoDB;Trusted_Connection=True;MultipleActiveResultSets=true";
 
-            services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
+            //services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
 
             //services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true).AddNewtonsoftJson(options =>
             //                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore) ;
@@ -69,7 +74,8 @@ namespace JustDoIt
            
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            
+            app.UseAuthentication();    // подключение аутентификации
+            app.UseAuthorization();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {

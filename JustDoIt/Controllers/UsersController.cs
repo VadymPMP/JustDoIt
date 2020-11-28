@@ -32,7 +32,7 @@ namespace JustDoIt.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Users>> Get(int id)
         {
-            Users user = await db.Users.FirstOrDefaultAsync(x => x.Id == id);
+            Users user = await db.Users.FirstOrDefaultAsync(x => x.Id == Convert.ToString(id));
             Notes note = await db.Notes.FirstOrDefaultAsync(y => user.Id == y.UserId);
             List<Notes> notes = new List<Notes>();
             notes.Add(note);
@@ -77,7 +77,7 @@ namespace JustDoIt.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Users>> Delete(int id)
         {
-            Users user = db.Users.FirstOrDefault(x => x.Id == id);
+            Users user = db.Users.FirstOrDefault(x => x.Id == Convert.ToString(id));
             if (user == null)
             {
                 return NotFound();
