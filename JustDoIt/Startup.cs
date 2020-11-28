@@ -43,7 +43,7 @@ namespace JustDoIt
             
             services.AddJsEngineSwitcher(options => options.DefaultEngineName = ChakraCoreJsEngine.EngineName).AddChakraCore();
 
-            string con = "Server=(localdb)\\mssqllocaldb;Database=NotesDB;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string con = "Server=(localdb)\\mssqllocaldb;Database=AutoDB;Trusted_Connection=True;MultipleActiveResultSets=true";
 
             services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
 
