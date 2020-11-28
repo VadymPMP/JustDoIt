@@ -10,9 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using React.AspNet;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 using AutoMapper;
-using Microsoft.IdentityModel.Tokens;
+
 using System.Threading.Tasks;
 
 using System.Text;
@@ -47,8 +47,8 @@ namespace JustDoIt
 
             services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
 
-            services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true).AddNewtonsoftJson(options =>
-                             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore) ;
+            //services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true).AddNewtonsoftJson(options =>
+            //                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore) ;
            
         }
            
